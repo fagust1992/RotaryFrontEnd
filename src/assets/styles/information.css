@@ -1,0 +1,38 @@
+
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas superiores */
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .mt-5 {
+    margin-top: 3rem !important;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+
+
+  .small-img {
+    max-width: 50%; /* Ajusta este valor según tus necesidades */
+    height: auto;
+  }
+

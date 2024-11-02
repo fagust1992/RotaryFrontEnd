@@ -1,0 +1,20 @@
+.styled-paragraph, .styled-paragraph2 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+.styled-paragraph2{
+  background: #d1b61f;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+  
+  .styled-paragraph:hover {
+    background-color: #e0e0e0;
+  }
+  

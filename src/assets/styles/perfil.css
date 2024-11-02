@@ -1,0 +1,32 @@
+.profile-banner {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-banner img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .profile-banner h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .profile-banner h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #adb5bd;
+  }
+  
+  .profile-banner p {
+    font-size: 16px;
+  }
+  

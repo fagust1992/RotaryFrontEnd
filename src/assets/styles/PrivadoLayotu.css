@@ -1,0 +1,58 @@
+/* PrivateLayout.css */
+
+/* Estilo general para el layout */
+.layout_content {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .layout_content h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .layout_content div {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .layout_content h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .layout_content p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  /* Estilo para la imagen del usuario */
+  .layout_content img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 20px;
+  }
+  
+  
+
+  .private-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el layout ocupe al menos el 100% de la altura de la ventana */
+  }
+  
+  .layout_content {
+    flex: 1; /* Esto hará que el contenido ocupe el espacio disponible */
+  }
+  
+  

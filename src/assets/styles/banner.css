@@ -1,0 +1,18 @@
+/* Banner.css */
+.banner-container {
+    background: linear-gradient(to right, #8f8481, #feb47b);
+    color: #020202;
+  }
+  
+  .banner-container .container {
+    max-width: 800px;
+  }
+  
+  .banner-container .display-4 {
+    font-weight: bold;
+  }
+  
+  .banner-container .lead {
+    font-size: 1.25rem;
+  }
+  

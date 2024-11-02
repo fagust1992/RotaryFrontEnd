@@ -1,0 +1,31 @@
+
+.banner-with-image-container {
+    background: linear-gradient(to right, #8f8481, #feb47b);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  }
+  
+  .text-content {
+    max-width: 100%;
+  }
+  
+  .image-content {
+    max-width: 100%;
+  }
+  
+  .image-content img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (min-width: 768px) {
+    .text-content {
+      max-width: 50%;
+    }
+  
+    .image-content {
+      max-width: 45%;
+    }
+  }
+  

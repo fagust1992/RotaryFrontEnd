@@ -1,0 +1,21 @@
+/* MaintenancePage.css */
+.maintenance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #333;
+  }
+  
+  .maintenance-heading {
+    font-size: 2.5rem;
+    margin: 0 0 20px 0;
+  }
+  
+  .maintenance-message {
+    font-size: 1.2rem;
+  }
+  

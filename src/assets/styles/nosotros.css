@@ -1,0 +1,68 @@
+/* nosotros.css */
+  
+.custom-banner {
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Ajusta la altura según tus necesidades */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(54, 39, 39);
+    padding: 20px;
+
+  }
+  
+  .h2-sobre-nosotros {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: #faf3f3;
+  }
+  
+  .p-sobre-nosotros {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    color: #f1e0e0;
+    font-weight: bold;
+  }
+  
+  .container {
+    margin-top: 20px;
+
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  .descripcion-sobre-nosotros {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #070707 0%, #fda085 100%);
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+  }
+  
+  .highlight {
+    color: #ffeb3b; /* Amarillo brillante */
+    font-weight: bold;
+  }
+  .information{
+   background: #fffbfb;
+  }
+  .texto1{
+   color: #51f728;
+  
+  }
+  @media (min-width: 768px) {
+    .descripcion-sobre-nosotros {
+      font-size: 1.2rem;
+    }
+  }
+  

@@ -1,0 +1,135 @@
+/* General form styles */
+.register-form {
+<<<<<<< HEAD
+  max-width: 350px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  /* Reduce la altura */
+  height: auto; /* Cambia a auto para que se ajuste al contenido */
+  margin-bottom: 20px;
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.btn-success {
+  margin-top: 10px;
+}
+
+/* Label styles */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* Input styles */
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+/* Submit button styles */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+/* Estilos para el mensaje de bienvenida */
+.welcome-message {
+  font-size: 1rem; /* Tamaño de fuente más grande */
+  font-weight: 100; /* Peso de la fuente */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  padding: 10px; /* Espaciado interior */
+  background-color: #f9f9f9; /* Fondo suave */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.welcome-message:hover {
+  background-color: #e9ecef; /* Cambio de fondo al pasar el mouse */
+}
+=======
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Form group styles */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .btn-success{
+    margin-top: 10px;
+  }
+  /* Label styles */
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  /* Input styles */
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+  
+  /* Submit button styles */
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background-color: #218838;
+  }
+
+  
+>>>>>>> d466545747372b1c848043f4932e02371e72ae7a

@@ -1,0 +1,69 @@
+/* video.css */
+
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Ajusta esto para que el video no ocupe toda la pantalla */
+  overflow: hidden;
+}
+
+.video-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* Asegúrate de que el video esté detrás del contenido */
+}
+
+.header-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto asegura que el video cubra todo el contenedor sin distorsionarse */
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
+  z-index: 2;
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.header-content h2,
+.header-content h1 {
+  margin: 0;
+}
+
+.nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4; /* Asegúrate de que el menú de navegación esté por encima del video y la superposición */
+}
+
+.additional-content {
+  padding: 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+}

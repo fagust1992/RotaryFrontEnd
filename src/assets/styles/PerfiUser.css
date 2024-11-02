@@ -1,0 +1,56 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f7f7; /* Fondo pastel */
+    padding: 20px;
+  }
+  
+  .profile-card {
+    background-color: #ffffff; /* Blanco suave para la tarjeta */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-card h1 {
+    font-size: 2rem;
+    color: #112d4e; /* Título azul pastel */
+    margin-bottom: 20px;
+  }
+  
+  .profile-card p {
+    font-size: 1.2rem;
+    color: #3f72af; /* Texto gris-azulado */
+    margin: 10px 0;
+  }
+  
+  .profile-card p strong {
+    color: #112d4e; /* Resalta en azul pastel */
+  }
+  
+  @media (max-width: 768px) {
+    .profile-card {
+      padding: 20px;
+      max-width: 100%;
+    }
+  
+    .profile-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
