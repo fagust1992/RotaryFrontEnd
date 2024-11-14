@@ -1,93 +1,67 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importar useNavigate
 import Header from "../layout/general/Header";
+import useForm from "../../hooks/useForm";
 import UseAuth from "../../hooks/UseAuth";
-import "../../assets/styles/Login.css";
+import "../../assets/styles/Login.css"
 import Footer from "../layout/general/Footer";
 
-// Definimos el esquema de validación con Yup
-const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Correo no válido")
-    .required("El correo es obligatorio"),
-  password: Yup.string()
-    .required("La contraseña es obligatoria"),
-});
-
 export const Login = () => {
-  const { auth } = UseAuth();
+  const initialValues = { email: "", password: "" };
+  const { auth } = UseAuth(); // Obtener y actualizar autenticación
+  const navigate = useNavigate(); // Hook para la navegación
 
   // Redirigir si ya está autenticado
-  if (auth.token) {
-    setTimeout(() => {
-      window.location.href = "/"; // Redirige a home
-    }, 2000);
-  }
+  useEffect(() => {
+    if (auth.token) {
+      navigate("/"); // Redirigir a la página de inicio o donde necesites
+    }
+  }, [auth, navigate]);
+
+  const { formValues, isSubmitting, handleChange, handleSubmit } = useForm(
+    initialValues,
+    "login"
+  );
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    await handleSubmit(e);
+  };
 
   return (
     <div>
       <Header />
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={async (values, { setSubmitting }) => {
-          // Aquí manejas la lógica de login (puedes agregar la lógica de envío)
-          console.log("Formulario enviado", values);
-
-          setSubmitting(false);
-        }}
-      >
-        {({ isSubmitting }) => (
-          <Form className="form-login">
-            <div className="form-group">
-              <label htmlFor="email">Correo</label>
-              <Field
-                type="email"
-                name="email"
-                className="form-control"
-                disabled={isSubmitting}
-              />
-              <ErrorMessage name="email" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
-              <Field
-                type="password"
-                name="password"
-                className="form-control"
-                disabled={isSubmitting}
-              />
-              <ErrorMessage name="password" component="div" className="error-message" />
-            </div>
-
-            <div className="form-group">
-              <button
-                type="submit"
-                className="btn btn-success"
-                disabled={isSubmitting}
-              >
-                Identifícate
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
-
-      {/* Mostrar mensaje si el login es exitoso */}
-      {auth?.token && (
-        <p className="success-message">
-          Login exitoso. Redirigiendo a tu perfil...
-        </p>
-      )}
-
-      <Footer />
+      <form className="form-login" onSubmit={handleFormSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Correo</label>
+          <input
+            type="email"
+            name="email"
+            value={formValues.email}
+            onChange={handleChange}
+            disabled={isSubmitting}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={formValues.password}
+            onChange={handleChange}
+            disabled={isSubmitting}
+          />
+        </div>
+        <input
+          type="submit"
+          value="Identifícate"
+          className="btn btn-success"
+          disabled={isSubmitting}
+        />
+      </form>
+      <Footer/>
     </div>
+
   );
 };
-
-export default Login;
