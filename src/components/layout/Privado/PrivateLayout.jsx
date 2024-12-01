@@ -11,33 +11,6 @@ const PrivateLayout = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (token && auth.user && auth.user.image !== "default.png") {
-      const fetchImage = async () => {
-        try {
-          const response = await fetch(
-            `${Global.url}user/avatar/${auth.user.image}`,
-            {
-              method: "GET",
-              headers: {
-                Authorization: token, // Asegúrate de incluir el token aquí
-              },
-            }
-          );
-
-          if (response.ok) {
-            const blob = await response.blob(); // Obtener la imagen como blob
-            const imageObjectURL = URL.createObjectURL(blob); // Crear un objeto URL para la imagen
-            setImageUrl(imageObjectURL);
-          }
-        } catch (error) {
-          console.error("Error de red", error);
-        }
-      };
-
-      fetchImage();
-    }
-  }, [auth, token]);
 
   return (
     <>
@@ -50,7 +23,7 @@ const PrivateLayout = () => {
             <p>Apellido: {auth.user.surname}</p>
             <p>Nick: {auth.user.nick}</p>
             <p>Email: {auth.user.email}</p>
-            {imageUrl && <img src={imageUrl} alt={auth.user.name} />}
+          <img src={auth.user.image} alt="" width={"300"} height={"300"} />
           </div>
         ) : (
           <div>Cargando datos del usuario...</div>
