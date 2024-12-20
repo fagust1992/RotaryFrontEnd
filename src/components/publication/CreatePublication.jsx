@@ -61,7 +61,7 @@ const CreatePublication = () => {
           ></textarea>
         </div>
         <button type="submit" className="btn btn-primary">
-          Publicar
+          Publicar2
         </button>
       </form>
     </div>
