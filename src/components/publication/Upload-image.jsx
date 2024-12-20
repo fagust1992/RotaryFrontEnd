@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Global } from "../../helpers/Global";
-import Header from "../layout/general/Header";
 
 const UserPublications = () => {
   const [publications, setPublications] = useState([]);
   const [message, setMessage] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-
-  const defaultImage = "https://m.media-amazon.com/images/I/71MhRrRPqfL._AC_UF894,1000_QL80_.jpg"; // Imagen por defecto
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     fetchPublications(currentPage);
@@ -46,23 +44,73 @@ const UserPublications = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    if (!image) {
+      setMessage("Selecciona una imagen antes de subirla.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", image);
+
+    try {
+      const response = await fetch(`${Global.url}publication/upload/ID_PUBLICACION`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Asegúrate de enviar el token
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.status === "success") {
+        setMessage("Imagen subida correctamente.");
+        fetchPublications(currentPage); // Refrescar publicaciones
+      } else {
+        setMessage(data.message || "Error al subir la imagen.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("Error al subir la imagen.");
+    }
+  };
+
   return (
     <div>
       <div className="container mt-5">
         <h2 className="mb-4">Publicaciones</h2>
         {message && <p className="alert alert-danger">{message}</p>}
+        
+        {/* Formulario de subida */}
+        <form onSubmit={handleImageUpload}>
+          <div className="mb-3">
+            <label className="form-label">Subir imagen:</label>
+            <input type="file" className="form-control" onChange={handleImageChange} />
+          </div>
+          <button type="submit" className="btn btn-primary">Subir Imagen</button>
+        </form>
+
+        {/* Lista de publicaciones */}
         {publications.length > 0 ? (
           <>
-            <ul className="list-group">
+            <ul className="list-group mt-4">
               {publications.map((pub) => (
                 <li key={pub._id} className="list-group-item">
                   <p><strong>Noticia:</strong> {pub.text}</p>
-                  <img
-                    src={pub.image === "default.png" ? defaultImage : pub.image} // Si la imagen es default.png, usa la imagen por defecto
-                    alt="Publication"
-                    className="img-fluid"
-                    style={{ maxWidth: "200px", maxHeight: "200px" }}
-                  />
+                  {pub.image && (
+                    <img
+                      src={pub.image}
+                      alt="Publication"
+                      className="img-fluid"
+                      style={{ maxWidth: "200px", maxHeight: "200px" }}
+                    />
+                  )}
                 </li>
               ))}
             </ul>
