@@ -7,8 +7,9 @@ const PrivateHeader = () => {
     <header className="header">
       <nav className="nav">
         <Link to="/registro" className="link">Registrar</Link>
-        <Link to="/publicar-noticias" className="link">Publicar Noticias</Link>
-        <Link to="/modificar" className="link">Modificar</Link>
+        <Link to="/save" className="link">Publicar Noticias</Link>
+        <Link to="/modificar" className="link">Modificar foto usuario</Link>
+     
       </nav>
       <button onClick={handleLogout} className="logoutButton">
         Cerrar Sesión

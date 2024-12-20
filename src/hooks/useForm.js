@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Global } from "../helpers/Global";
-import Swal from "sweetalert2"; // Asegúrate de que esto esté importado
+import Swal from "sweetalert2"; 
 import UseAuth from "./UseAuth";
 
 const useForm = (initialValues, submitType) => {
