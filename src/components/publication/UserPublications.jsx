@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Global } from "../../helpers/Global";
-import Header from "../layout/general/Header";
 
 const UserPublications = () => {
   const [publications, setPublications] = useState([]);
   const [message, setMessage] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-
-  const defaultImage = "https://m.media-amazon.com/images/I/71MhRrRPqfL._AC_UF894,1000_QL80_.jpg"; // Imagen por defecto
+console.log(publications)
+  const defaultImage =
+    "https://m.media-amazon.com/images/I/71MhRrRPqfL._AC_UF894,1000_QL80_.jpg"; // Imagen por defecto
 
   useEffect(() => {
     fetchPublications(currentPage);
@@ -56,7 +56,9 @@ const UserPublications = () => {
             <ul className="list-group">
               {publications.map((pub) => (
                 <li key={pub._id} className="list-group-item">
-                  <p><strong>Noticia:</strong> {pub.text}</p>
+                  <p>
+                    <strong>Noticia:</strong> {pub.text}
+                  </p>
                   <img
                     src={pub.image === "default.png" ? defaultImage : pub.image} // Si la imagen es default.png, usa la imagen por defecto
                     alt="Publication"
@@ -74,7 +76,9 @@ const UserPublications = () => {
               >
                 Anterior
               </button>
-              <span>Página {currentPage} de {totalPages}</span>
+              <span>
+                Página {currentPage} de {totalPages}
+              </span>
               <button
                 className="btn btn-primary ms-2"
                 onClick={() => handlePageChange(currentPage + 1)}

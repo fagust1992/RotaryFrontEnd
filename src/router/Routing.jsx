@@ -13,9 +13,13 @@ import UserPublications from "../components/publication/UserPublications";
 import CreatePublication from "../components/publication/CreatePublication";
 import ScrollToTop from "../components/layout/general/ScrollToTop";
 
+import CreateImage from "../components/publication/CreateImage";
+import UserPublicationsComponent from "../components/publication/UserPublicationsComponent";
+
 const AppRoutes = () => {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
+  console.log(user)
   const isAuthenticated = token && user;
 
   return (
@@ -37,17 +41,23 @@ const AppRoutes = () => {
           path="/perfil"
           element={isAuthenticated ? <PerfiUser /> : <Navigate to="/login" />}
         />
-        <Route
-          path="/registro"
-          element={isAuthenticated ? <Register /> : <Navigate to="/login" />}
-        />
+      
           <Route
           path="/registro"
           element={isAuthenticated ? <Register /> : <Navigate to="/login" />}
         />
+      
+        <Route
+          path="/userPosts"
+          element={isAuthenticated ? <UserPublicationsComponent /> : <Navigate to="/login" />}
+        />
         <Route
           path="/modificar"
           element={isAuthenticated ? <FileUpload /> : <Navigate to="/login" />}
+        />
+          <Route
+          path="/upload"
+          element={isAuthenticated ? <CreateImage /> : <Navigate to="/login" />}
         />
         <Route
           path="/publicaciones"

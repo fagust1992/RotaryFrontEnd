@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import PrivateHeader from "./Privateheader";
 import UseAuth from "../../../hooks/UseAuth";
-import { Global } from "../../../helpers/Global";
+
 import "../../../assets/styles/PrivadoLayotu.css";
 import PrivadoFooter from "./PrivadoFooter";
 
 const PrivateLayout = () => {
   const { auth } = UseAuth();
-  const [imageUrl, setImageUrl] = useState(null);
-  const token = localStorage.getItem("token");
-
 
   return (
     <>
@@ -23,7 +20,7 @@ const PrivateLayout = () => {
             <p>Apellido: {auth.user.surname}</p>
             <p>Nick: {auth.user.nick}</p>
             <p>Email: {auth.user.email}</p>
-          <img src={auth.user.image} alt="" width={"300"} height={"300"} />
+            <img src={auth.user.image} alt="" width={"300"} height={"300"} />
           </div>
         ) : (
           <div>Cargando datos del usuario...</div>
@@ -36,4 +33,3 @@ const PrivateLayout = () => {
 };
 
 export default PrivateLayout;
-

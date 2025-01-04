@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Global } from "../../helpers/Global";
-
+import { Link } from "react-router-dom";
 const CreatePublication = () => {
   const [text, setText] = useState("");
   const [message, setMessage] = useState("");
@@ -44,6 +44,13 @@ const CreatePublication = () => {
   return (
     <div className="container mt-5">
       <h2 className="mb-4">Crear Publicación</h2>
+      <Link
+        to="/userPosts"
+        className="link"
+        style={{ color: "blue", marginBottom: "20px !important" }}
+      >
+        Pinchame para modificar Imagen de la publicacion
+      </Link>
       {message && <p className="alert alert-info">{message}</p>}
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
@@ -64,7 +71,10 @@ const CreatePublication = () => {
           Publicar2
         </button>
       </form>
+      
+  
     </div>
+    
   );
 };
 

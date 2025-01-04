@@ -19,6 +19,7 @@ const PrivateHeader = () => {
         <Link to="/registro" className="link">Registrar</Link>
         <Link to="/save" className="link">Publicar Noticias</Link>
         <Link to="/modificar" className="link">Modificar foto usuario</Link>
+        <Link to="/userPosts" className="link">Modificar Imagen de la publicacion</Link>
       </nav>
       <button onClick={handleLogout} className="logoutButton">
         Cerrar Sesión
