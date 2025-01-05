@@ -2,11 +2,11 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../../components/layout/general/Header";
 import { Widgets } from "./Widgets";
-import Profile from "../../../hooks/Profile";
+
 import { Banner, BannerWithImage, News } from "./Banner";
 import Gallery from "./Gallery";
 import Footer from "./Footer";
-
+import UserPublications from "../../publication/UserPublications";
 export const PublicLayout = () => {
 
 
@@ -17,7 +17,7 @@ export const PublicLayout = () => {
       <Banner />
       <BannerWithImage />
       <Gallery />
-      <News showAll={false} />
+       <UserPublications  limit={6}/>
       <Footer />
 
       <section className="layout_content">

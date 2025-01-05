@@ -1,20 +1,139 @@
+/* Contenedor principal de las publicaciones */
 .publications-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  background: #333;
+}
+
+/* Tarjeta individual de publicación */
+.publication-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.publication-card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen dentro de la tarjeta */
+.publication-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Texto dentro de la tarjeta */
+.publication-card p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  word-wrap: break-word;
+}
+
+/* Contenedor de edición de texto */
+.edit-container {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.edit-container h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.edit-container textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.edit-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor para subir imágenes */
+.upload-container {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.upload-container h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.upload-container input[type="file"] {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.upload-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-container button:hover {
+  background-color: #1e7e34;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
   .publication-card {
-    width: 150px;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 90%;
   }
-  .upload-container {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
+
+  .edit-container, .upload-container {
+    padding: 10px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .publication-card {
+    max-width: 100%;
+  }
+
+  .edit-container h3, .upload-container h3 {
+    font-size: 16px;
+  }
+
+  .edit-container button, .upload-container button {
+    font-size: 12px;
+  }
+}

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Global } from "../../helpers/Global";
-import "../../assets/styles/Publications.css"; //COMPONENTE DE PUBLICACIONES USUARIOS.....
+import "../../assets/styles/Publications.css";
 
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
@@ -8,10 +8,13 @@ const userId = user?.id;
 
 const UserPublicationsComponent = () => {
   const [publications, setPublications] = useState([]);
-  const [selectedPubId, setSelectedPubId] = useState(null); // ID de la publicación seleccionada
-  const [imageFile, setImageFile] = useState(null); // Archivo de imagen
-  const [editedText, setEditedText] = useState(""); // Nuevo texto para edición
-  const [isEditing, setIsEditing] = useState(false); // Estado para controlar la edición del texto
+  const [selectedPubId, setSelectedPubId] = useState(null);
+  const [imageFile, setImageFile] = useState(null);
+  const [editedText, setEditedText] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+
+  // Referencia para el contenedor de edición
+  const editContainerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,13 +50,18 @@ const UserPublicationsComponent = () => {
 
   const handleSelect = (id, text) => {
     setSelectedPubId(id);
-    setEditedText(text); // Cargar el texto actual de la publicación en el campo de edición
-    setIsEditing(true); // Activar la edición
-    setImageFile(null); // Reiniciar archivo seleccionado
+    setEditedText(text);
+    setIsEditing(true);
+    setImageFile(null);
+
+    // Desplazar hacia el contenedor de edición
+    setTimeout(() => {
+      editContainerRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100); // Esperar un pequeño margen para asegurar que la vista se actualice
   };
 
   const handleTextChange = (event) => {
-    setEditedText(event.target.value); // Actualizar el texto editado
+    setEditedText(event.target.value);
   };
 
   const handleSaveText = async () => {
@@ -81,8 +89,8 @@ const UserPublicationsComponent = () => {
             pub._id === selectedPubId ? { ...pub, text: editedText } : pub
           )
         );
-        setIsEditing(false); // Desactivar la edición
-        setSelectedPubId(null); // Desmarcar la publicación seleccionada
+        setIsEditing(false);
+        setSelectedPubId(null);
       } else {
         alert("Error al actualizar el texto: " + data.message);
       }
@@ -160,8 +168,9 @@ const UserPublicationsComponent = () => {
         ))}
       </div>
 
+      {/* Contenedor de edición */}
       {isEditing && selectedPubId && (
-        <div className="edit-container">
+        <div className="edit-container" ref={editContainerRef}>
           <h3>Modificar Texto para Publicación Seleccionada</h3>
           <textarea
             value={editedText}
@@ -173,8 +182,9 @@ const UserPublicationsComponent = () => {
         </div>
       )}
 
+      {/* Contenedor de subida de imagen */}
       {selectedPubId && (
-        <div className="upload-container">
+        <div className="upload-container" ref={editContainerRef}>
           <h3>Subir Imagen para Publicación Seleccionada</h3>
           <input type="file" onChange={handleFileChange} />
           <button onClick={handleUpload}>Subir Imagen</button>
